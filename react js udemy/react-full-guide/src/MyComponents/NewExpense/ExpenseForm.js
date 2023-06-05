@@ -1,23 +1,35 @@
 import "../NewExpense/ExpenseForm.css"
 import {useState} from 'react'
 function ExpenseForm(){
-    // storing values for future updation
-    const [enteredTitle , setEnteredTitle] = useState('')
-    const [enteredAmount , setEnteredAmount] = useState('')
-    const [enteredDate , setEnteredDate] = useState('')
-
+    // storing values for future updation 
+    const [userInput, setUserInput] = useState({
+        enteredTitle: ' ', 
+        enteredAmount: ' ', 
+        enteredDate: ' '
+    }); 
 
     const titleChangeHandler = (event)=>{
-        setEnteredTitle(event.target.value)
-    }
+        setUserInput({
+            ...userInput, 
+            enteredTitle: event.target.value, 
 
+        })
+    }
     const amountChangeHandler = (event)=>{
-        setEnteredAmount(event.target.value)
+        setUserInput({
+            ...userInput, 
+            enteredAmount: event.target.value, 
+
+        })
+    }
+    const dateChangeHandler = (event)=>{
+        setUserInput({
+            ...userInput, 
+            enteredDate: event.target.value, 
+
+        })
     }
 
-    const dateChangeHandler = (event)=>{
-        setEnteredDate(event.target.value)
-    }
 
     return (
         <form>
